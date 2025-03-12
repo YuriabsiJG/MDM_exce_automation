@@ -52,31 +52,62 @@ Click **Run Merge Script** to execute `merge.py` if needed.
 - The filtered file is saved with a filename based on applied filters.
 - The program prevents duplicate filter criteria.
 
----
+# Excel File Merger - GitHub Documentation
 
-## Contributing
-1. Fork the repository.
-2. Create a new branch for your feature:
-   ```sh
-   git checkout -b feature-name
-   ```
-3. Commit your changes:
-   ```sh
-   git commit -m "Add new feature"
-   ```
-4. Push the branch:
-   ```sh
-   git push origin feature-name
-   ```
-5. Open a Pull Request.
+## Overview
+This tool allows users to merge multiple Excel files into a single sheet while preserving formatting. The program uses a template file to maintain consistency in structure.
+
+## Features
+- **Select a template file** to define the structure of the merged output.
+- **Add multiple Excel files** to merge.
+- **Remove selected files** from the list before merging.
+- **Choose an output filename** for the merged file.
+- **Merge the selected files** into the template while maintaining formatting.
 
 ---
 
-## License
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+## Installation
+1. Ensure Python is installed (>=3.7).
+2. Install required dependencies:
+   ```sh
+   pip install pandas openpyxl tqdm
+   ```
+3. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/excel-file-merger.git
+   cd excel-file-merger
+   ```
 
 ---
 
-## Contact
-For any issues or feature requests, please open an issue on GitHub or contact `your-email@example.com`.
+## Usage
+
+### Step 1: Launch the Application
+Run the Python script to open the graphical user interface (GUI).
+
+### Step 2: Select a Template File
+Click **Browse** to choose an Excel template. This template will define the structure of the merged file.
+
+### Step 3: Add Excel Files
+Click **Add Files** to select an Excel file or use `Ctrl + Click` to select multiple Excel files that need to be merged.
+
+### Step 4: Remove Unwanted Files
+Select files from the list and click **Remove Selected** to exclude them from the merging process.
+
+### Step 5: Choose an Output File
+Click **Browse** under **Output Filename** to specify where the merged Excel file will be saved and create a filename of your preference.
+
+### Step 6: Merge Files
+Click **Merge Selected Files** to start merging.
+- The process runs in a separate thread to prevent UI freezing.
+- A progress pop-up will appear until completion.
+
+---
+
+## Notes
+- Ensure that column names and data formats match the template.
+- The merged file will maintain the formatting of the template.
+- Large datasets may take longer to process.
+
+
 
