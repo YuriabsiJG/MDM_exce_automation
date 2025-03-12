@@ -109,5 +109,101 @@ Click **Merge Selected Files** to start merging.
 - The merged file will maintain the formatting of the template.
 - Large datasets may take longer to process.
 
+# Modular Guide: Setting Up and Executing a Standalone Program via PyInstaller
+
+## Overview
+PyInstaller is a Python package that allows you to convert Python scripts into standalone executable files for Windows, macOS, and Linux. This guide provides step-by-step instructions on setting up and executing a standalone program using PyInstaller.
+
+## Prerequisites
+- Python (>=3.7) installed
+- Required Python dependencies installed
+- PyInstaller installed
+
+---
+
+## Installation
+### Step 1: Install PyInstaller
+To install PyInstaller, run the following command:
+```sh
+pip install pyinstaller
+```
+
+### Step 2: Verify Installation
+Check if PyInstaller is installed by running:
+```sh
+pyinstaller --version
+```
+
+---
+
+## Creating a Standalone Executable
+
+### Step 1: Navigate to Your Script's Directory
+Ensure your terminal or command prompt is in the directory containing your Python script:
+```sh
+cd /path/to/your/script
+```
+
+### Step 2: Run PyInstaller
+To create an executable from a Python script (`your_script.py`), use:
+```sh
+pyinstaller --onefile your_script.py
+```
+
+### Additional Options
+- `--onefile`: Generates a single executable file.
+- `--noconsole`: Hides the terminal window (useful for GUI applications).
+- `--icon=icon.ico`: Sets a custom icon for the executable.
+- `--name=CustomName`: Sets a custom name for the output file.
+
+Example:
+```sh
+pyinstaller --onefile --noconsole --icon=myicon.ico --name=MyApp your_script.py
+```
+
+---
+
+## Executing the Standalone Program
+
+### Locate the Executable
+After running PyInstaller, the executable will be found in the `dist/` folder:
+```sh
+dist/your_script.exe  # Windows
+./dist/your_script  # macOS/Linux
+```
+
+### Running the Executable
+To run the standalone program:
+```sh
+./dist/your_script  # macOS/Linux
+```
+For Windows, simply double-click `your_script.exe`.
+
+---
+
+## Troubleshooting
+
+### 1. Missing Dependencies
+If the executable fails to run, ensure all required dependencies are installed. Try reinstalling them:
+```sh
+pip install -r requirements.txt
+```
+
+### 2. Large File Size
+If the output executable is too large, try using UPX compression:
+```sh
+pyinstaller --onefile --upx-dir=/path/to/upx your_script.py
+```
+
+### 3. Permission Issues
+If you encounter permission errors on macOS/Linux, grant execution permissions:
+```sh
+chmod +x dist/your_script
+```
+
+---
+
+## Conclusion
+Using PyInstaller, you can easily convert Python scripts into standalone executables. By following this modular guide, you can customize your build, troubleshoot issues, and efficiently distribute your program.
 
 
